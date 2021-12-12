@@ -3,6 +3,9 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import PinterestIcon from "@material-ui/icons/Pinterest";
+import RoomIcon from "@material-ui/icons/Room";
+import PhoneIcon from "@material-ui/icons/Phone";
+import EmailIcon from "@material-ui/icons/Email";
 
 /* -- Styled Components --*/
 const Container = styled.div`
@@ -45,13 +48,32 @@ const Center = styled.div`
 
 const Title = styled.h3``;
 
-const ListItem = styled.li``;
+const List = styled.ul`
+  margin-top: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+`;
 
-const List = styled.ul``;
+const ListItem = styled.li`
+  width: 50%;
+  margin-bottom: 10px;
+`;
 
 const Right = styled.div`
   flex: 1;
   padding: 20px;
+`;
+
+const ContactItem = styled.div`
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+`;
+
+const Payment = styled.img`
+  width: 50%;
 `;
 
 function Footer() {
@@ -80,7 +102,7 @@ function Footer() {
         </SocialContainer>
       </Left>
       <Center>
-        <Title>Useful Links</Title>
+        <Title style={{ marginBottom: "30px" }}>Useful Links</Title>
         <List>
           <ListItem>Home</ListItem>
           <ListItem>Cart</ListItem>
@@ -93,7 +115,21 @@ function Footer() {
           <ListItem>Terms</ListItem>
         </List>
       </Center>
-      <Right></Right>
+      <Right>
+        <Title style={{ marginBottom: "30px" }}>Contact</Title>
+        <ContactItem>
+          <RoomIcon style={{ marginRight: "10px" }} />
+          43 Missouri Ave NW, Washington DC 20011
+        </ContactItem>
+        <ContactItem>
+          <PhoneIcon style={{ marginRight: "10px" }} /> +1 2345678901
+        </ContactItem>
+        <ContactItem>
+          <EmailIcon style={{ marginRight: "10px" }} />
+          info@shema.com
+        </ContactItem>
+        <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
+      </Right>
     </Container>
   );
 }
