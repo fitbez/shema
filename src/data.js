@@ -39,3 +39,38 @@ export const categories = [
     title: "LIGHT JACKETS",
   },
 ];
+
+export const popularProducts = [
+  {
+    id: 1,
+    img: "../images/tebeb_1.png",
+  },
+  {
+    id: 2,
+    img: "../images/tebeb_2.png",
+  },
+  {
+    id: 3,
+    img: "../images/tebeb_3.png",
+  },
+  {
+    id: 4,
+    img: "../images/tebeb_4.png",
+  },
+  {
+    id: 5,
+    img: "../images/tebeb_5.png",
+  },
+  {
+    id: 6,
+    img: "../images/tebeb_6.png",
+  },
+  {
+    id: 7,
+    img: "../images/tebeb_7.png",
+  },
+  {
+    id: 8,
+    img: "../images/tebeb_8.png",
+  },
+];
