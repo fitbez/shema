@@ -5,6 +5,7 @@ import NewsLetter from "../components/NewsLetter";
 import Footer from "../components/Footer";
 import RemoveIcon from "@material-ui/icons/Remove";
 import AddIcon from "@material-ui/icons/Add";
+import { mobile } from "../responsive";
 
 /* -- Styled Components -- */
 const Container = styled.div``;
@@ -12,6 +13,7 @@ const Container = styled.div``;
 const Wrapper = styled.div`
   display: flex;
   padding: 50px;
+  ${mobile({ flexDirection: "column", padding: "10px" })}
 `;
 
 const ImageContainer = styled.div`
@@ -22,11 +24,13 @@ const Image = styled.img`
   width: 100%;
   height: 90vh;
   object-fit: cover;
+  ${mobile({ height: "40vh" })}
 `;
 
 const InfoContainer = styled.div`
   flex: 1;
   padding: 0px 50px;
+  ${mobile({ padding: "10px" })}
 `;
 
 const Title = styled.h1`
@@ -47,6 +51,7 @@ const FilterContainer = styled.div`
   justify-content: space-between;
   width: 50%;
   margin: 30px 0px;
+  ${mobile({ width: "100%" })}
 `;
 
 const Filter = styled.div`
@@ -80,6 +85,7 @@ const AddContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  ${mobile({ width: "100%" })}
 `;
 
 const AmountContainer = styled.div`
