@@ -2,9 +2,9 @@ const router = require("express").Router();
 const User = require("../models/User");
 const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 /* Register */
-
 router.post("/register", async (req, res) => {
   const newUser = new User({
     username: req.body.username,
@@ -43,7 +43,7 @@ router.post("/login", async (req, res) => {
         isAdmin: user.isAdmin,
       },
       process.env.JWT_SEC,
-      { expiresIn: "30minutes" }
+      { expiresIn: "24h" }
     );
 
     const { password, ...others } = user._doc;
