@@ -1,7 +1,11 @@
 const router = require("express").Router();
-const { verifyTokenAndAuthorization } = require("./verifyToken");
+const {
+  verifyTokenAndAuthorization,
+  verifyTokenAndAdmin,
+} = require("./verifyToken");
+const User = require("../models/User");
 
-/*Updating user */
+/*UPDATE USER */
 router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
   if (req.body.password) {
     req.body.password = CryptoJS.AES.encrypt(
@@ -9,9 +13,8 @@ router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
       process.env.PASS_SEC
     ).toString();
   }
-
   try {
-    const updatedUser = await User.findByIdAndUpdate(
+    const updatedUser = await User.findOneAndUpdate(
       req.params.id,
       {
         $set: req.body,
@@ -19,6 +22,28 @@ router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
       { new: true }
     );
     res.status(200).json(updatedUser);
+    console.log("updated user is", updatedUser);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+/* DELETE USER*/
+router.delete("/:id", verifyTokenAndAuthorization, async (req, res) => {
+  try {
+    await User.findByIdAndDelete(req.params.id);
+    res.status(200).json("User has been deleted...");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+/* GET USER */
+router.get("/find/:id", verifyTokenAndAdmin, async (req, res) => {
+  try {
+    await User.findById(req.params.id);
+    const { password, ...others } = user._doc;
+    res.status(200).json(others);
   } catch (err) {
     res.status(500).json(err);
   }

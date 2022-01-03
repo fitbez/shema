@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
+
 /** Setting up express server */
 const app = express();
 
@@ -16,7 +17,7 @@ mongoose
     console.log(error);
   });
 
-app.use(express.json());
+app.use(express.json()); // body parser
 
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
