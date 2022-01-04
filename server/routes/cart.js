@@ -3,11 +3,11 @@ const {
   verifyTokenAndAuthorization,
   verifyTokenAndAdmin,
 } = require("./verifyToken");
-const Product = require("../models/Cart");
+const Cart = require("../models/Cart");
 
 /* Setting up API end points */
-/* CREATE PRODUCT*/
-router.post("/", verifyToken, async (req, res) => {
+/* CREATE CART*/
+router.post("/", verifyTokenAndAuthorization, async (req, res) => {
   const newCart = new Cart(req.body);
   try {
     const savedCart = await newCart.save();
